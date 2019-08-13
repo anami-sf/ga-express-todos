@@ -1,4 +1,5 @@
 var express = require('express');
+//Factoring patters: function that returns an object
 var router = express.Router();
 
 /* GET home page. */
