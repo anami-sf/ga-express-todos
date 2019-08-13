@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var methodOverride = require('method-override')
 
 var indexRouter = require('./routes/index');
 var todosRouter = require('./routes/todos');
@@ -28,6 +29,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 //Delivers static assets
 app.use(express.static(path.join(__dirname, 'public')));
+//Give it the name of the query parameter... by convention __method
+// Query strings are not part of the route
+app.use(methodOverride('__method'))
 
 //Routers
 app.use('/', indexRouter);
