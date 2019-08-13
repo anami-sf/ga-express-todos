@@ -8,9 +8,9 @@ const index = (req, res) => {
 }
 
 const show = (req, res) => {
-    res.render('todos/show', {
-        //This is how we retrieve URL parameters(route parameters)
+    res.render('todos/show', {     
         todo: Todo.getOne(req.aparms.id),
+        //This is how we retrieve URL parameters(route parameters)
         todoNum: parseInt(req.params.id) + 1
     })
 }
@@ -19,8 +19,17 @@ const newTodo= (req, res) => {
     res.render( 'todos/new')
 }
 
+const create = (req, res) => {
+    console.log(req.body)
+    req.body.done = false
+    //Todo is the moder, crate is a function in the Todo model
+    Todo.create(req.body)
+    res.redirect('/todos')
+}
+
 module.exports = {
     index,
     show,
-    new: newTodo
+    new: newTodo,
+    create
 }

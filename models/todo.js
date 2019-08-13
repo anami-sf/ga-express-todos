@@ -12,8 +12,13 @@ const getOne = (id) => {
  return todos(id)
 }
 
+const create = (todo) => {
+    todos.push(todo)
+}
+
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    create
 }    
