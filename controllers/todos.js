@@ -15,7 +15,12 @@ const show = (req, res) => {
     })
 }
 
+const newTodo= (req, res) => {
+    res.render( 'todos/new')
+}
+
 module.exports = {
     index,
-    show
+    show,
+    new: newTodo
 }
