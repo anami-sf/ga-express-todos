@@ -4,11 +4,16 @@ const todos = [
     {todo: 'Buy Milk', done: false}
   ];
 
-    getAll = () => {
+const getAll = () => {
     return todos;
-  }
-  
-  module.exports = {
-    getAll
-  };
-  
+}
+
+const getOne = (id) => {
+ return todos(id)
+}
+
+
+module.exports = {
+    getAll,
+    getOne
+}    

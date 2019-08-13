@@ -13,10 +13,20 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+//custom middleware (I add)
+app.use((req, res, next) => {
+  console.log('Hello')
+  req.time = new Date().toLocaleTimeString()
+  next()
+})
+
+//Boiler plate middelware
 app.use(logger('dev'));
 app.use(express.json());
+//handles forms
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+//Delivers static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Routers
