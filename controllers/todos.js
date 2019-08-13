@@ -27,9 +27,15 @@ const create = (req, res) => {
     res.redirect('/todos')
 }
 
+const deleteTodo = () => {
+    Todo.deleteOne(req.params.id)
+    res.redirect('/todos')
+}
+
 module.exports = {
     index,
     show,
     new: newTodo,
-    create
+    create,
+    delete: deleteTodo
 }

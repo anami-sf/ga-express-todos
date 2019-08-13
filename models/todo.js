@@ -13,7 +13,12 @@ const getOne = (id) => {
 }
 
 const create = (todo) => {
-    todos.push(todo)
+    //splice params: (start, items to delete)
+    todos.splice(id, 1)
+}
+
+const deleteOne = () => {
+    todos.pop(id)
 }
 
 
