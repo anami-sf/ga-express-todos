@@ -14,16 +14,22 @@ const getOne = (id) => {
 
 const create = (todo) => {
     //splice params: (start, items to delete)
+    todos.push(todo)
+}
+
+const deleteOne = (id) => {
     todos.splice(id, 1)
 }
 
-const deleteOne = () => {
-    todos.pop(id)
+const update = (id, todo) => {
+    todos[id] = todo
 }
 
 
 module.exports = {
     getAll,
     getOne,
-    create
+    create,
+    deleteOne,
+    update
 }    

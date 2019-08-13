@@ -27,7 +27,7 @@ const create = (req, res) => {
     res.redirect('/todos')
 }
 
-const deleteTodo = () => {
+const deleteTodo = (req, res) => {
     Todo.deleteOne(req.params.id)
     res.redirect('/todos')
 }
@@ -40,11 +40,18 @@ const edit = (req, res) => {
     })
 }
 
+const update = (req, res) => {
+    req.body.done = !!req.body.done
+    Todo.update(req.params.id, req.body)
+    res.redirect(`/todos/${req.params.id}`)
+}
+
 module.exports = {
     index,
     show,
     new: newTodo,
     create,
     delete: deleteTodo,
-    edit
+    edit,
+    update
 }

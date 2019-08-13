@@ -31,7 +31,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //Give it the name of the query parameter... by convention __method
 // Query strings are not part of the route
-app.use(methodOverride('__method'))
+app.use(methodOverride('_method'))
 
 //Routers
 app.use('/', indexRouter);
