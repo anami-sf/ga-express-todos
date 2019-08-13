@@ -9,5 +9,6 @@ router.get('/:id', todosCtrl.show);
 router.get('/:id/edi', todosCtrl.edit)
 router.post('/', todosCtrl.create);
 router.delete('/:id', todosCtrl.delete);
+//router.put('/:id', todosCtrl.update)
 
 module.exports = router;

@@ -32,10 +32,19 @@ const deleteTodo = () => {
     res.redirect('/todos')
 }
 
+const edit = (req, res) => {
+    var todo = Todo.getOne(req.params.id)
+    res.render('todos/edit', {
+        todo,
+        todoIdx: req.aparams.id
+    })
+}
+
 module.exports = {
     index,
     show,
     new: newTodo,
     create,
-    delete: deleteTodo
+    delete: deleteTodo,
+    edit
 }
